@@ -1,0 +1,12 @@
+for(i=0;i<NUM_OF_REFERENCES;++i){
+         int node_NO = node_numbers[i];
+         int segmentId = node_NO/NUM_OF_SEGMENTNODES;
+         segmentDes *tmp = headSD;
+         while(tmp->id != segmentId ) tmp = tmp->next;
+         segmentNode *tmpSN = tmp->list;
+         while(tmpSN->id != node_NO) tmpSN = tmpSN->next;
+         int pageTableNo = binToDec(tmpSN->pageTab);
+         int pageOffset  = binToDec(tmpSN->pageOff);
+         int pageNo = NUM_OF_PAGETABLES*pageTableNo + pageOffset
+         page_numbers[i] = pageNo;
+     }
